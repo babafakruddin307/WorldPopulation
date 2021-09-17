@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>COVID CASES TRACKER</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+	crossorigin="anonymous">
+<div class="jumbotron">
+	<h1 align="center">WORLD POPULATION LIST</h1>
+	<p class="lead">TOTAL POPULATION REPORTED OF THE WORLD</p>
+	<h3 class="display-4" th:text="${population}"></h3>
+	<hr class="my-4">
+	<p class="lead">TOTAL INDAIN POPULATION</p>
+	<h3 class="display-4" th:text="${Indainpopulation}"></h3>
+	<hr class="my-4">
+</div>
+</head>
+
+<body>
+	<div class="container">
+		<table class="table table-striped" style="width: 80%" align="center">
+			<tr>
+				<th>COUNTRY</th>
+				<th>COUNTRY-CODE</th>
+				<th>YEAR</th>
+				<th>POPULATION</th>
+			</tr>
+			<tr th:each="stats : ${latestcount}">
+				<td th:text="${stats.country}"></td>
+				<td th:text="${stats.countryCode}"></td>
+				<td th:text="${stats.year}">0</td>
+				<td th:text="${stats.population}">0</td>
+			</tr>
+		</table>
+	</div>
+</body>
+
+</html>
